@@ -377,11 +377,13 @@ void satipVtuner::setProperty(struct vtuner_message* msg)
 			break;
 		}
 
-#if DVB_API_VERSION > 5 || DVB_API_VERSION == 5 && DVB_API_VERSION_MINOR >= 9
+#if defined DTV_STREAM_ID
 		case DTV_STREAM_ID:
 			DEBUG(MSG_MAIN,"DTV_STREAM_ID : %d\n",(int)data);
+#elif defined DTV_DVBT2_PLP_ID
 		case DTV_DVBT2_PLP_ID:
 			DEBUG(MSG_MAIN,"DTV_DVBT2_PLP_ID : %d\n",(int)data);
+#elif defined DTV_DVBT2_PLP_ID_LEGACY
 		case DTV_DVBT2_PLP_ID_LEGACY:
 			DEBUG(MSG_MAIN,"DTV_DVBT2_PLP_ID_LEGACY : %d\n",(int)data);
 #endif
